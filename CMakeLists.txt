@@ -3,5 +3,5 @@ project(KRY_projekt1)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.cpp Communicator.cpp Communicator.h IO.cpp IO.h)
 add_executable(KRY_projekt1 ${SOURCE_FILES})
