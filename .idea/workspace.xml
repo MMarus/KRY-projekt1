@@ -11,15 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91a713ce-5e29-4d47-9816-89cda16f8c53" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DiffieHellman.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DiffieHellman.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Communicator.cpp" afterPath="$PROJECT_DIR$/Communicator.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Communicator.h" afterPath="$PROJECT_DIR$/Communicator.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
-    </list>
+    <list default="true" id="91a713ce-5e29-4d47-9816-89cda16f8c53" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -409,12 +401,12 @@
       <updated>1489603975511</updated>
       <workItem from="1489603977144" duration="4033000" />
       <workItem from="1489830252699" duration="4000" />
-      <workItem from="1489865103596" duration="41908000" />
+      <workItem from="1489865103596" duration="41929000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45945000" />
+    <option name="totallyTimeSpent" value="45966000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="749" extended-state="0" />
