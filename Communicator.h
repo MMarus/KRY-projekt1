@@ -12,6 +12,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include "IO.h"
+#include "DiffieHellman.h"
 
 using namespace std;
 
@@ -20,8 +21,9 @@ class Communicator {
 public:
     Communicator();
     void createIO(string to, string from, bool writeFirst);
+    void createTunnel();
 
-    void readMsg();
+    string readMsg();
     void sendMsg(string msg);
     void listen();
 
@@ -29,7 +31,8 @@ public:
 private:
     IO io;
     int key;
-    void setupPipe();
+    DiffieHellman diffieHellman;
+
 };
 
 

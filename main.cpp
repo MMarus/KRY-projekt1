@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Communicator.h"
+#include "DiffieHellman.h"
 
 using namespace std;
 
@@ -31,12 +32,14 @@ int main(int argc, char* argv[])
         Communicator client;
         client.createIO(clientPipeName, serverPipeName, true);
         client.readMsg();
+        client.createTunnel();
     }
     else{
         std::cout << "HUraa server" << std::endl;
         Communicator server;
         server.createIO(serverPipeName, clientPipeName, false);
         server.sendMsg("Helloooooo Woooorld!");
+        server.createTunnel();
     }
 
     printf("KONIEC PROGRAMU");
