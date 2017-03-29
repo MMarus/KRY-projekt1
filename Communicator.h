@@ -23,24 +23,18 @@ public:
     Communicator();
     void createIO(string to, string from, bool writeFirst);
     void createTunnel();
-
     string readMsg();
     void sendMsg(string msg);
     void sendEncryptedMsg(string msg);
     string readEncryptedMsg();
     bool isTunnelCreated();
-
+    void setTunnelCreated(bool tunnelCreated);
     void listen();
-
 
 private:
     IO io;
     int key;
     bool tunnelCreated;
-public:
-    void setTunnelCreated(bool tunnelCreated);
-
-private:
     AES aes;
     DiffieHellman diffieHellman;
 

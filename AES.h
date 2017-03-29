@@ -16,15 +16,11 @@ public:
     AES();
     string encrypt(string msg);
     string decrypt(string msg);
-
-private:
-    string key;
-public:
     void setKey(const string &key);
-
     void setInitVector(const string &initVector);
 
 private:
+    string key;
     string initVector;
 };
 

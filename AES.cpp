@@ -75,6 +75,7 @@ AES::AES() {
     EVP_add_cipher(EVP_aes_256_cbc());
 }
 
+//Kod z https://wiki.openssl.org/index.php/EVP_Symmetric_Encryption_and_Decryption
 string AES::encrypt(string msg) {
     secure_string ptext(msg.c_str());
     secure_string ctext;
@@ -108,6 +109,7 @@ string AES::encrypt(string msg) {
     return result;
 }
 
+//Kod z https://wiki.openssl.org/index.php/EVP_Symmetric_Encryption_and_Decryption
 string AES::decrypt(string msg) {
     secure_string ctext(msg.c_str());
     secure_string rtext;
