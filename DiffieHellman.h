@@ -20,9 +20,10 @@ public:
     mpz_class getExponentToSend();
     void setRecievedExponent(mpz_class exp);
     void calculateKey();
-    void trimKeyTo(int bits);
+    mpz_class trimKeyTo(int bits);
     mpz_class keyRaw;
     mpz_class keyTrimmed;
+    mpz_class initVector;
 
 private:
     mpz_class nPublicPrimeModulus;

@@ -62,10 +62,11 @@ void DiffieHellman::calculateKey() {
              nPublicPrimeModulus.get_mpz_t());
 }
 
-void DiffieHellman::trimKeyTo(int bits) {
-    //keyRaw.g
-    //keyTrimmed =
+mpz_class DiffieHellman::trimKeyTo(int bits) {
+    mpz_class result("0", base);
+    string maxNumberStr(bits, '1');
+    mpz_class maxNumber(maxNumberStr, 2);
+    mpz_mod(result.get_mpz_t(), keyRaw.get_mpz_t(), maxNumber.get_mpz_t() );
+    cout << "log.debug: " << "DH key: trimed to " << bits << " = " << result.get_str(base) << endl;
+    return result;
 }
-
-
-

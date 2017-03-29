@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include "IO.h"
 #include "DiffieHellman.h"
+#include "AES.h"
 
 using namespace std;
 
@@ -25,12 +26,22 @@ public:
 
     string readMsg();
     void sendMsg(string msg);
+    void sendEncryptedMsg(string msg);
+    string readEncryptedMsg();
+    bool isTunnelCreated();
+
     void listen();
 
 
 private:
     IO io;
     int key;
+    bool tunnelCreated;
+public:
+    void setTunnelCreated(bool tunnelCreated);
+
+private:
+    AES aes;
     DiffieHellman diffieHellman;
 
 };

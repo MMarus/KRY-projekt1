@@ -1,7 +1,5 @@
 #include <iostream>
-#include <string>
 #include "Communicator.h"
-#include "DiffieHellman.h"
 
 using namespace std;
 
@@ -24,8 +22,12 @@ int main(int argc, char* argv[])
     }
     std::cout << argument << std::endl;
 
+
+
     string clientPipeName = "fromClient";
     string serverPipeName = "fromServer";
+
+    string message = "Mega tajna sprava!";
 
     if(isArgClient(argument)){
         std::cout << "HUraa klient" << std::endl;
@@ -33,6 +35,7 @@ int main(int argc, char* argv[])
         client.createIO(clientPipeName, serverPipeName, true);
         client.readMsg();
         client.createTunnel();
+        client.sendEncryptedMsg(message);
     }
     else{
         std::cout << "HUraa server" << std::endl;
@@ -40,6 +43,7 @@ int main(int argc, char* argv[])
         server.createIO(serverPipeName, clientPipeName, false);
         server.sendMsg("Helloooooo Woooorld!");
         server.createTunnel();
+        string encMsg = server.readEncryptedMsg();
     }
 
     printf("KONIEC PROGRAMU");
