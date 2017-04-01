@@ -33,11 +33,6 @@ string Hash::createSHA256(string msg) {
 
     string hash((char *)digest);
 
-    string my_std_string(digest, digest + digest_length);
-    std::string my_std_string(reinterpret_cast<const char *>(digest), digest_length);
-    cout << "log.debug: Hash: digest lenght " << digest_length << endl;
-    cout << "log.debug: " << "Hash: msg = " << msg << " CONVERTED HASH: " << my_std_string << endl;
-
     cout << "log.debug: " << "Hash: msg = " << msg << " hash: " << digest << endl;
     return hash;
 }
