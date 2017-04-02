@@ -18,6 +18,8 @@ public:
     string decrypt(string msg);
     void setKey(const string &key);
     void setInitVector(const string &initVector);
+    string converBytesToStr(unsigned char *bytes, int length);
+    unsigned char * convertStrToBytes(string str);
 
 private:
     string key;

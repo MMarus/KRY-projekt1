@@ -4,6 +4,7 @@
 
 #include <openssl/crypto.h>
 #include <openssl/evp.h>
+#include <openssl/err.h>
 #include <memory>
 #include <limits>
 #include "AES.h"
@@ -80,7 +81,7 @@ string AES::encrypt(string msg) {
     secure_string ptext(msg.c_str());
     secure_string ctext;
 
-    secure_string msgSecureStr = msg.c_str();
+    secure_string msgSecureStr(msg.c_str());
     EVP_CIPHER_CTX_free_ptr ctx(EVP_CIPHER_CTX_new(), ::EVP_CIPHER_CTX_free);
     int rc = EVP_EncryptInit_ex(ctx.get(), EVP_aes_256_cbc(), NULL, (const unsigned char *) key.c_str(),
                                 (const unsigned char *) initVector.c_str());
@@ -130,8 +131,10 @@ string AES::decrypt(string msg) {
 
     int out_len2 = (int)rtext.size() - out_len1;
     rc = EVP_DecryptFinal_ex(ctx.get(), (byte*)&rtext[0]+out_len1, &out_len2);
-    if (rc != 1)
+    if (rc != 1){
+        ERR_print_errors_fp(stderr);
         throw std::runtime_error("EVP_DecryptFinal_ex failed");
+    }
 
     // Set recovered text size now that we know it
     rtext.resize(out_len1 + out_len2);
@@ -150,3 +153,10 @@ void AES::setInitVector(const string &initVector) {
     AES::initVector = initVector;
 }
 
+string AES::converBytesToStr(unsigned char *bytes, int length) {
+    return std::__cxx11::string();
+}
+
+unsigned char *AES::convertStrToBytes(string str) {
+    return nullptr;
+}

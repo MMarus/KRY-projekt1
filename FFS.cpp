@@ -35,6 +35,11 @@ vector<unsigned long> FFS::generateRandomBitsVector() {
         cout << "randomBitsVector["<<i<<"] = " << randomBits[i] << endl;
 
     }
+//    randomBits[0] = 0;
+//    randomBits[1] = 0;
+//    randomBits[2] = 1;
+////    randomBits[3] = 0;
+////    randomBits[4] = 0;
     return randomBits;
 }
 
@@ -54,15 +59,21 @@ mpz_class FFS::calculateXForB() {
     mpz_class two("2", base);
     mpz_class minus1("-1", base);
     unsigned long randomBit = generateRandomBit(); // b
+    mpz_class randB(randomBit);
     mpz_class randomInt = generateRandomInteger(nCommonModulus); //r
     setRandomInteger(randomInt);
 
-    mpz_pow_ui(result.get_mpz_t(), minus1.get_mpz_t(), randomBit); //(-1)^b
+    mpz_powm(result.get_mpz_t(), minus1.get_mpz_t(), randB.get_mpz_t(), nCommonModulus.get_mpz_t()); //(-1)^b
+    cout << " (-1)^b = " << result.get_str(base) << endl;
+
     mpz_mul(result.get_mpz_t(), result.get_mpz_t(), randomInt.get_mpz_t()); //result = (-1)^b * r
+    cout <<  " (-1)^b * r =" << result.get_str(base) << endl;
+
     mpz_mul(result.get_mpz_t(), result.get_mpz_t(), randomInt.get_mpz_t()); //result = (-1)^b * r * r
+    cout <<  " (-1)^b * r * r =" << result.get_str(base) << endl;
     mpz_mod(result.get_mpz_t(), result.get_mpz_t(), nCommonModulus.get_mpz_t());
 
-    cout << "calculateX result = " << result.get_str(base) << endl;
+    cout << "calculateX (-1)^b * r * r mod n = " << result.get_str(base) << endl;
     return result;
 }
 
@@ -95,12 +106,20 @@ bool FFS::verifyResponse(mpz_class response) {
     else {
         for(int i = 0; i < kSecurityParameter; i++) {
             mpz_pow_ui(publicVectExpBit.get_mpz_t(), publicVector[i].get_mpz_t(), randomBitsVector[i]); // vi^ei
+            cout << "rand = " << randomBitsVector[i] << " " << publicVectExpBit.get_str(base) << endl;
             mpz_mul(z.get_mpz_t(), z.get_mpz_t(), publicVectExpBit.get_mpz_t());
+            cout << "z = " << randomBitsVector[i] << " " << z.get_str(base) << endl;
         }
         mpz_mod(z.get_mpz_t(), z.get_mpz_t(), nCommonModulus.get_mpz_t());
+        cout << "z = " << " " << z.get_str(base) << endl;
+
     }
+    mpz_class minusX;
+    mpz_neg(minusX.get_mpz_t(), XForB.get_mpz_t());
+    mpz_mod(minusX.get_mpz_t(), minusX.get_mpz_t(), nCommonModulus.get_mpz_t());
+    cout << "Minus x = " << minusX.get_str(base) << endl;
     if ( mpz_cmp_si(z.get_mpz_t(), 0) != 0 &&
-         mpz_cmpabs(z.get_mpz_t(), XForB.get_mpz_t()) == 0)
+            ( mpz_cmp(z.get_mpz_t(), XForB.get_mpz_t()) == 0 || mpz_cmp(z.get_mpz_t(), minusX.get_mpz_t()) == 0) )
         result = true;
 
     cout << "log.debug: compare XForB = " << endl << XForB.get_str(base) << endl << "and z = " << endl << z.get_str(base) << endl;
@@ -109,7 +128,7 @@ bool FFS::verifyResponse(mpz_class response) {
 }
 
 mpz_class FFS::generateRandomInteger(mpz_class max) {
-    mpz_class randomInt("0", base);
+    mpz_class randomInt("1279", base);
 
     unsigned long randomNumber; //TODO: NOT SURE ABOUT MEMORY LEAKS
     if (!RAND_bytes((unsigned char *)&randomNumber, sizeof randomNumber)) {
@@ -152,4 +171,27 @@ void FFS::setPublicVector(const vector<mpz_class> &publicVector) {
 
 void FFS::setRandomBitsVector(const vector<unsigned long int> &randomBitsVector) {
     FFS::randomBitsVector = randomBitsVector;
+}
+
+string FFS::getRandomBitsVectorStr() {
+    string str("");
+    for(int i = 0; i < kSecurityParameter; i++) {
+        randomBitsVector[i] == 1 ? str.append("1") : str.append("0");
+    }
+    cout << "log debug: vector = " << str << endl;
+    return str;
+}
+
+void FFS::setRandomBitsVectorStr(string bits) {
+    for(int i = 0; i < kSecurityParameter; i++) {
+        randomBitsVector[i] = bits[i] == '1' ? 1 : 0;
+    }
+}
+
+void FFS::setResponse(const mpz_class &response) {
+    FFS::response = response;
+}
+
+const mpz_class &FFS::getResponse() const {
+    return response;
 }

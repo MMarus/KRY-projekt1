@@ -6,6 +6,8 @@
 #include <openssl/evp.h>
 #include "Hash.h"
 #include <openssl/sha.h>
+#include <iomanip>
+#include <sstream>
 
 string Hash::createSHA256(string msg) {
     unsigned int digest_length = SHA256_DIGEST_LENGTH;
@@ -34,11 +36,29 @@ string Hash::createSHA256(string msg) {
     string hash((char *)digest);
 
     cout << "log.debug: " << "Hash: msg = " << msg << " hash: " << digest << endl;
-    return hash;
+
+
+
+
+    stringstream ss;
+    ss << std::hex << setfill('0');
+    for (int i = 0; i < SHA256_DIGEST_LENGTH; ++i)
+    {
+        cout << std::setw(2) << static_cast<unsigned>(hash[i]);
+        ss << std::setw(2) << static_cast<unsigned>(hash[i]);
+    }
+    cout << endl;
+
+    cout << "log.debug: " << "Hash: msg = " << msg << " hash HEX: " << ss.str() << endl;
+
+
+    return ss.str();
 }
 
+
+
 bool Hash::isHashCorrect(string hash, string msg) {
-    string msgHash = createSHA256(msg);
+    string msgHash(createSHA256(msg));
     bool hashCorrect = hash == msgHash;
     cout << "log.debug: " << "Hash correctd: " << hashCorrect << endl;
     return hashCorrect;

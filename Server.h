@@ -19,6 +19,7 @@ public:
     void sendRandomBitsVector();
     void readResponse();
     bool isResponseOk();
+    void listen();
 
 private:
     Communicator communicator;

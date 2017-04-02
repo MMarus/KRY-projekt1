@@ -29,14 +29,38 @@ int main(int argc, char* argv[])
     string argument(argv[1]);
     std::cout << argument << std::endl;
 
-    string clientPipeName = "fromClient";
-    string serverPipeName = "fromServer";
+    string clientPipeName("fromClient");
+    string serverPipeName("fromServer");
 
-    string message = "Mega tajna sprava!";
+    string message("Mega tajna sprava!");
 
 //
+//    FFS ffs1;
+//    mpz_class commonModulus("553913", base);
+//    ffs1.setNCommonModulus(commonModulus);
+//    vector<mpz_class> secretVector(kSecurityParameter);
+//    secretVector[0].set_str("157", base);
+//    secretVector[1].set_str("43215", base);
+//    secretVector[2].set_str("4646", base);
+////    secretVector[3].set_str("1", base);
+////    secretVector[4].set_str("1", base);
+//    ffs1.setSecretVector(secretVector);
+//    //ffs1.calculatePublicVector();
+//
+//    vector<mpz_class> publicVector(kSecurityParameter);
+//    publicVector[0].set_str("441845",base);
+//    publicVector[1].set_str("338402",base);
+//    publicVector[2].set_str("124423",base);
+////    publicVector[3].set_str("1",base);
+////    publicVector[4].set_str("1",base);
+//
+//    //Client generuje random bit - challenge vector kt, posle serveru
+//    FFS ffs2;
+//    ffs2.setNCommonModulus(commonModulus);
+//    vector<unsigned long> randBitsVect = ffs2.generateRandomBitsVector();
+//
 //    //komunikacia
-//    ffs2.setPublicVector(ffs1.getPublicVector());
+//    ffs2.setPublicVector(publicVector);
 //    ffs2.setRandomBitsVector(randBitsVect);
 //    ffs1.setRandomBitsVector(randBitsVect);
 ////    ffs1.calculateXForB();
@@ -47,7 +71,7 @@ int main(int argc, char* argv[])
 //    cout << "log debug: isResponseOk = " << isResponseOk << endl;
 
 
-//    string hash = Hash::createSHA256(message);
+//    string hash(Hash::createSHA256(message));
 //    string testHash("Hello world");
 //    Hash::createSHA256(testHash);
 //    bool hashCorretness = Hash::isHashCorrect(hash, message);

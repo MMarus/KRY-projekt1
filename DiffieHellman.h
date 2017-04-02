@@ -20,7 +20,7 @@ public:
     mpz_class getExponentToSend();
     void setRecievedExponent(mpz_class exp);
     void calculateKey();
-    mpz_class trimKeyTo(int bits);
+    string trimKeyTo(int bits);
     mpz_class keyRaw;
     mpz_class keyTrimmed;
     mpz_class initVector;

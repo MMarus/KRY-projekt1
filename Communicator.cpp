@@ -17,23 +17,27 @@ void Communicator::createTunnel() {
     diffieHellman.generateExponentToSend();
     cout << "log.debug: " << "Exponent to send: " << diffieHellman.getExponentToSend().get_str(base) << endl;
     sendMsg(diffieHellman.getExponentToSend().get_str(base));
-    string message = readMsg();
+    string message(readMsg());
     cout << "log.debug: " << "Recieved exponent = " << message << endl;
     mpz_class recievedExponent(message, base);
     diffieHellman.setRecievedExponent(recievedExponent);
     diffieHellman.calculateKey();
-    cout << "log.debug: " << "DH key: " << diffieHellman.keyRaw.get_str(base) << endl;
-    mpz_class key = diffieHellman.trimKeyTo(256);
-    mpz_class initVector = diffieHellman.trimKeyTo(128);
 
-    //Nastavenie vektoru a klucu aes
-    aes.setInitVector(initVector.get_str(base));
-    aes.setKey(key.get_str(base));
+//TODO: prekonvertovat do unsigned char pred asignovanim do str
+    cout << "log.debug: " << "DH key: " << diffieHellman.keyRaw.get_str(base) << endl;
+
+    aes.setInitVector(diffieHellman.trimKeyTo(256));
+    aes.setKey(diffieHellman.trimKeyTo(128));
+
+//    mpz_class key("571265377419729461734767680290181434030375586089350011581905576", base);
+//    mpz_class initVector("1271078490719233717764", base);
+//    aes.setInitVector(initVector.get_str(base));
+//    aes.setKey(key.get_str(base));
     setTunnelCreated(true);
 }
 
 void Communicator::sendEncryptedMsg(string msg) {
-    string encryptedMsg = msg;
+    string encryptedMsg(msg);
     if(isTunnelCreated())
         encryptedMsg = aes.encrypt(msg);
     else
@@ -47,8 +51,8 @@ void Communicator::sendMsg(string msg) {
 }
 
 string Communicator::readEncryptedMsg() {
-    string encryptedMsg = readMsg();
-    string decryptedMessage = encryptedMsg;
+    string encryptedMsg(readMsg());
+    string decryptedMessage(encryptedMsg);
     if(isTunnelCreated())
         decryptedMessage = aes.decrypt(encryptedMsg);
     else
