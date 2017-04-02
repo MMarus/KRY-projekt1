@@ -33,15 +33,15 @@ void IO::openPipes(bool writeFirst){
 }
 
 void IO::openForRead() {
-    cout << "log.debug: " <<"waiting for writers..." << endl;
+    cerr << "log.debug: " <<"waiting for writers..." << endl;
     inputStream.open(inFileName, ifstream::in);
-    cout << "log.debug: " << "got a writer" << endl;
+    cerr << "log.debug: " << "got a writer" << endl;
 }
 
 void IO::openForWrite() {
-    cout << "log.debug: " << "waiting for readers..." << endl;
+    cerr << "log.debug: " << "waiting for readers..." << endl;
     outputStream.open(outFilename, ifstream::out);
-    cout << "log.debug: " << "got a reader" << endl;
+    cerr << "log.debug: " << "got a reader" << endl;
 }
 
 void IO::sendMessage(string msg) {
@@ -52,7 +52,7 @@ void IO::sendMessage(string msg) {
     outputStream << "XMARUS05MSGEND$";
     outputStream << endl;
 
-    cout << "log.debug: " << "Sent message size:'" << msg.size() <<"' content: " << msg << endl;
+    cerr << "log.debug: " << "Sent message size:'" << msg.size() <<"' content: " << msg << endl;
 }
 
 string IO::readMessage() {
@@ -60,7 +60,7 @@ string IO::readMessage() {
     string footer("XMARUS05MSGEND$");
     string msg("");
 
-    cout << "log.debug: " << "Waiting for message" << endl;
+    cerr << "log.debug: " << "Waiting for message" << endl;
     int msgSize = 0;
 
     char c;
@@ -68,10 +68,9 @@ string IO::readMessage() {
     {
         string msgStart("");
         inputStream >> msgStart;
-        cout << msgStart << endl;
         if(msgStart == head){
             inputStream >> msgSize;
-            cout << "message size = " << msgSize << endl;
+            cerr << "log.debug: message size = " << msgSize << endl;
             inputStream.get(c); //odstran medzeru zo zaciatku
             for(int i = 0; i <= (msgSize + footer.length()); i++) {
                 inputStream.get(c);
@@ -79,10 +78,8 @@ string IO::readMessage() {
             }
         }
     }
-    //TODO: remove footer
-    cout << "log.debug: " << "Got message:" << msg << endl;
     msg = msg.substr(0, msg.size()-16);
-    cout << "log.debug: " << "Got message:" << msg << endl;
+    cerr << "log.debug: " << "Got message:" << msg << endl;
     return msg;
 }
 

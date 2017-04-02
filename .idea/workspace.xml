@@ -11,14 +11,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91a713ce-5e29-4d47-9816-89cda16f8c53" name="Default" comment="diffie hellman kluc generovanie raw bytes">
+    <list default="true" id="91a713ce-5e29-4d47-9816-89cda16f8c53" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AES.cpp" afterPath="$PROJECT_DIR$/AES.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AES.h" afterPath="$PROJECT_DIR$/AES.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client.cpp" afterPath="$PROJECT_DIR$/Client.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Communicator.cpp" afterPath="$PROJECT_DIR$/Communicator.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DiffieHellman.cpp" afterPath="$PROJECT_DIR$/DiffieHellman.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FFS.cpp" afterPath="$PROJECT_DIR$/FFS.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hash.cpp" afterPath="$PROJECT_DIR$/Hash.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IO.cpp" afterPath="$PROJECT_DIR$/IO.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server.cpp" afterPath="$PROJECT_DIR$/Server.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -38,28 +38,12 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="56" selection-end-column="5" />
+            <state relative-caret-position="558">
+              <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
                 <element signature="e#180#288#0" expanded="false" />
                 <element signature="e#289#344#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AES.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AES.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="180" column="0" lean-forward="false" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
-              <folding>
-                <element signature="e#40#67#0" expanded="true" />
-                <element signature="e#319#331#0" expanded="true" />
-                <element signature="e#332#1780#1" expanded="false" />
-                <element signature="e#1237#1249#0" expanded="true" />
-                <element signature="e#1525#1771#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,8 +64,8 @@
       <file leaf-file-name="Server.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-90">
-              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="108">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding>
                 <element signature="e#39#58#0" expanded="true" />
               </folding>
@@ -92,8 +76,8 @@
       <file leaf-file-name="Communicator.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Communicator.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="270">
+              <caret line="15" column="19" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -102,28 +86,8 @@
       <file leaf-file-name="IO.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IO.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AES.h" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AES.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Hash.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hash.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-558">
-              <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="9" selection-end-column="18" />
+            <state relative-caret-position="972">
+              <caret line="54" column="72" lean-forward="false" selection-start-line="54" selection-start-column="72" selection-end-line="54" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -132,10 +96,26 @@
       <file leaf-file-name="FFS.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FFS.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+            <state relative-caret-position="612">
+              <caret line="34" column="34" lean-forward="false" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
               <folding>
                 <element signature="e#39#64#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AES.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AES.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="114" column="5" lean-forward="true" selection-start-line="109" selection-start-column="4" selection-end-line="114" selection-end-column="5" />
+              <folding>
+                <element signature="e#40#67#0" expanded="true" />
+                <element signature="e#319#331#0" expanded="true" />
+                <element signature="e#332#1780#1" expanded="false" />
+                <element signature="e#1237#1249#0" expanded="true" />
+                <element signature="e#1525#1771#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -144,10 +124,22 @@
       <file leaf-file-name="DiffieHellman.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DiffieHellman.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="84" column="23" lean-forward="false" selection-start-line="84" selection-start-column="11" selection-end-line="84" selection-end-column="23" />
+            <state relative-caret-position="648">
+              <caret line="36" column="8" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
               <folding>
                 <element signature="e#40#66#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Hash.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Hash.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding>
+                <element signature="e#40#69#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -172,7 +164,6 @@
       <find>Message</find>
       <find>mod</find>
       <find>randomBitsVector</find>
-      <find>rand =</find>
       <find>log debug: calculated</find>
       <find>string.*=</find>
       <find>Hash::isHashCorrect(hash, message);</find>
@@ -180,7 +171,15 @@
       <find>trimed to</find>
       <find>size</find>
       <find>msgSecureStr</find>
+      <find>rand =</find>
+      <find>bio</find>
+      <find>cout &lt;&lt; &quot;log.debug:</find>
+      <find>cout</find>
     </findStrings>
+    <replaceStrings>
+      <replace>//cout &lt;&lt; &quot;log.debug:</replace>
+      <replace>cerr &lt;&lt; &quot;log.debug:</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -206,17 +205,17 @@
         <option value="$PROJECT_DIR$/Hash.h" />
         <option value="$PROJECT_DIR$/Client.h" />
         <option value="$PROJECT_DIR$/Server.h" />
-        <option value="$PROJECT_DIR$/Hash.cpp" />
         <option value="$PROJECT_DIR$/FFS.h" />
-        <option value="$PROJECT_DIR$/FFS.cpp" />
-        <option value="$PROJECT_DIR$/Communicator.cpp" />
-        <option value="$PROJECT_DIR$/IO.cpp" />
-        <option value="$PROJECT_DIR$/DiffieHellman.cpp" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/Client.cpp" />
         <option value="$PROJECT_DIR$/Server.cpp" />
-        <option value="$PROJECT_DIR$/AES.cpp" />
         <option value="$PROJECT_DIR$/AES.h" />
+        <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/FFS.cpp" />
+        <option value="$PROJECT_DIR$/Communicator.cpp" />
+        <option value="$PROJECT_DIR$/DiffieHellman.cpp" />
+        <option value="$PROJECT_DIR$/IO.cpp" />
+        <option value="$PROJECT_DIR$/AES.cpp" />
+        <option value="$PROJECT_DIR$/Hash.cpp" />
       </list>
     </option>
   </component>
@@ -269,7 +268,7 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
     <property name="GO_FMT" value="false" />
   </component>
-  <component name="RunManager" selected="Application.KRY_projekt client">
+  <component name="RunManager" selected="Application.KRY_projekt1 server">
     <configuration default="true" type="BashConfigurationType" factoryName="Bash">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="INTERPRETER_PATH" value="/sbin/bash" />
@@ -506,7 +505,8 @@
       <workItem from="1490801567355" duration="5260000" />
       <workItem from="1490806858258" duration="8234000" />
       <workItem from="1490961458796" duration="65208000" />
-      <workItem from="1491127018300" duration="15293000" />
+      <workItem from="1491127018300" duration="16918000" />
+      <workItem from="1491144501031" duration="384000" />
     </task>
     <task id="LOCAL-00001" summary="AES encrypt, decrypt">
       <created>1490809514256</created>
@@ -543,15 +543,22 @@
       <option name="project" value="LOCAL" />
       <updated>1491123666568</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fugnujeeeeee">
+      <created>1491142655497</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1491142655497</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148159000" />
+    <option name="totallyTimeSpent" value="150168000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="749" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1509716" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -563,13 +570,13 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962631" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49839744" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="291" y="101" width="771" height="438" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4695513" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="291" y="101" width="771" height="438" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5138889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51282054" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -585,7 +592,8 @@
     <MESSAGE value="FFS v0.1" />
     <MESSAGE value="FFS v0.2" />
     <MESSAGE value="diffie hellman kluc generovanie raw bytes" />
-    <option name="LAST_COMMIT_MESSAGE" value="diffie hellman kluc generovanie raw bytes" />
+    <MESSAGE value="Fugnujeeeeee" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fugnujeeeeee" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -621,16 +629,6 @@
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Communicator.cpp</url>
-          <line>44</line>
-          <option name="timeStamp" value="104" />
-        </line-breakpoint>
-        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Communicator.cpp</url>
-          <line>45</line>
-          <option name="timeStamp" value="108" />
-        </line-breakpoint>
-        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/AES.cpp</url>
           <line>106</line>
           <option name="timeStamp" value="171" />
@@ -650,17 +648,28 @@
           <line>100</line>
           <option name="timeStamp" value="175" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Hash.cpp</url>
+          <line>59</line>
+          <option name="timeStamp" value="187" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Hash.cpp</url>
+          <line>63</line>
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Hash.cpp</url>
+          <line>64</line>
+          <option name="timeStamp" value="189" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="186" />
+      <option name="time" value="190" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="CMakeRunConfiguration">
-        <watch expression="result" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Communicator.cpp">
@@ -685,7 +694,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -707,7 +715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -775,7 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="4" column="62" lean-forward="false" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -792,7 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="595" column="4" lean-forward="false" selection-start-line="595" selection-start-column="4" selection-end-line="595" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -833,7 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -841,7 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="336" column="6" lean-forward="false" selection-start-line="336" selection-start-column="6" selection-end-line="336" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -856,9 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-          <folding>
-            <element signature="e#101#126#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -866,9 +866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="21" column="15" lean-forward="true" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
-          <folding>
-            <element signature="e#101#126#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -876,7 +873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2466">
           <caret line="155" column="36" lean-forward="false" selection-start-line="155" selection-start-column="36" selection-end-line="155" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -884,7 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="804" column="25" lean-forward="true" selection-start-line="804" selection-start-column="25" selection-end-line="804" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -892,9 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding>
-            <element signature="e#94#110#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -902,7 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
           <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -910,17 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="1516" column="0" lean-forward="false" selection-start-line="1516" selection-start-column="0" selection-end-line="1516" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DiffieHellman.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="84" column="23" lean-forward="false" selection-start-line="84" selection-start-column="11" selection-end-line="84" selection-end-column="23" />
-          <folding>
-            <element signature="e#40#66#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -928,25 +908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
           <caret line="729" column="15" lean-forward="false" selection-start-line="729" selection-start-column="4" selection-end-line="729" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FFS.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-          <folding>
-            <element signature="e#39#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hash.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-558">
-          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="9" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -958,30 +919,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
+    <entry file="file://$PROJECT_DIR$/AES.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="56" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#180#288#0" expanded="false" />
-            <element signature="e#289#344#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IO.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Communicator.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="360">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -996,20 +937,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#180#288#0" expanded="false" />
+            <element signature="e#289#344#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FFS.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="34" column="34" lean-forward="false" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+          <folding>
+            <element signature="e#39#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DiffieHellman.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="36" column="8" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+          <folding>
+            <element signature="e#40#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Communicator.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="19" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Server.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state relative-caret-position="108">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
             <element signature="e#39#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/IO.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="972">
+          <caret line="54" column="72" lean-forward="false" selection-start-line="54" selection-start-column="72" selection-end-line="54" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AES.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="180" column="0" lean-forward="false" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+        <state relative-caret-position="319">
+          <caret line="114" column="5" lean-forward="true" selection-start-line="109" selection-start-column="4" selection-end-line="114" selection-end-column="5" />
           <folding>
             <element signature="e#40#67#0" expanded="true" />
             <element signature="e#319#331#0" expanded="true" />
@@ -1020,11 +1009,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AES.h">
+    <entry file="file://$PROJECT_DIR$/Hash.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="99">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <element signature="e#40#69#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

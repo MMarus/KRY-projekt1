@@ -33,24 +33,23 @@ string Hash::createSHA256(string msg) {
 
     EVP_MD_CTX_destroy(mdctx);
 
-    string hash((char *)digest);
-
-    cout << "log.debug: " << "Hash: msg = " << msg << " hash: " << digest << endl;
-
-
-
-
+    //Konverzia na hex
+//    stringstream ss;
+//    ss << std::hex << setfill('0');
+//    for (int i = 0; i < SHA256_DIGEST_LENGTH; ++i)
+//    {
+//        cout << std::setw(2) << static_cast<unsigned>(hash[i]);
+//        ss << std::setw(2) << static_cast<unsigned>(hash[i]);
+//    }
+//    cout << endl;
     stringstream ss;
-    ss << std::hex << setfill('0');
-    for (int i = 0; i < SHA256_DIGEST_LENGTH; ++i)
-    {
-        cout << std::setw(2) << static_cast<unsigned>(hash[i]);
-        ss << std::setw(2) << static_cast<unsigned>(hash[i]);
+    for(int i = 0; i < digest_length; i++) {
+        int test = digest[i];
+        ss << test << " ";
+        cerr << test << " ";
     }
-    cout << endl;
 
-    cout << "log.debug: " << "Hash: msg = " << msg << " hash HEX: " << ss.str() << endl;
-
+    cerr << "log.debug: " << "Hash: msg = " << msg << " hash HEX: " << ss.str() << endl;
 
     return ss.str();
 }
@@ -60,7 +59,9 @@ string Hash::createSHA256(string msg) {
 bool Hash::isHashCorrect(string hash, string msg) {
     string msgHash(createSHA256(msg));
     bool hashCorrect = hash == msgHash;
-    cout << "log.debug: " << "Hash correctd: " << hashCorrect << endl;
+    cout << hash << endl;
+    cout << msgHash << endl;
+    cerr << "log.debug: " << "Hash correctness = " << hashCorrect << endl;
     return hashCorrect;
 }
 

@@ -106,26 +106,24 @@ string AES::encrypt(string msg) {
     // Set cipher text size now that we know it
     ctext.resize(out_len1 + out_len2);
 
-    BIO_dump_fp (stdout, ctext.c_str(), ctext.size());
-
-
-    cout << "ctext = " <<  ctext << endl;
+    //Konverzia z char na pole int - odstranenie nutnosti escapovana znakov
     stringstream ss;
     for(int i = 0; i < ctext.size(); i++) {
         int test = ctext[i];
         ss << test << " ";
-        cout << test << " ";
+        cerr << test << " ";
     }
-    cout << endl;
-    cout << ss.str() << endl;
+    cerr << endl;
+    cerr << ss.str() << endl;
     string result(ss.str());
 
-    cout << "Result = " << result << endl;
+    cerr << "Result = " << result << endl;
     return result;
 }
 
 //Kod z https://wiki.openssl.org/index.php/EVP_Symmetric_Encryption_and_Decryption
 string AES::decrypt(string msg) {
+    //Konverzia z int na pole char - odstranenie nutnosti escapovana znakov
     secure_string ctext(msg.c_str());
     secure_string rtext;
     stringstream in(msg);
@@ -133,13 +131,12 @@ string AES::decrypt(string msg) {
     int countOfChars = 0;
     int integer = 0;
     while(in >> integer) {
-        cout << integer << " ";
+        cerr << integer << " ";
         ctext[countOfChars] = integer;
         countOfChars++;
     }
-    cout << endl;
+    cerr << endl;
     ctext.resize(countOfChars);
-    cout << "ctext = " << ctext << endl;
 
     EVP_CIPHER_CTX_free_ptr ctx(EVP_CIPHER_CTX_new(), ::EVP_CIPHER_CTX_free);
     int rc = EVP_DecryptInit_ex(ctx.get(), EVP_aes_256_cbc(), NULL, (const unsigned char *) key.c_str(),
@@ -165,7 +162,6 @@ string AES::decrypt(string msg) {
     // Set recovered text size now that we know it
     rtext.resize(out_len1 + out_len2);
 
-    //TODO: funguje to spravne???
     string result(rtext.c_str());
 
     return result;

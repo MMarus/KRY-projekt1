@@ -29,22 +29,6 @@ int main(int argc, char* argv[])
     string argument(argv[1]);
     std::cout << argument << std::endl;
 
-    string clientPipeName("fromClient");
-    string serverPipeName("fromServer");
-
-    string message("Mega tajna sprava!");
-    string cipherTxt("");
-    string recoveredTxt("");
-
-//    AES aes;
-//    aes.setInitVector("1263897930360445");
-//    aes.setKey("10426667945622412389331687349788");
-//    cipherTxt = aes.encrypt(message);
-//    cout << "Encrypted msg " << cipherTxt << endl;
-//    recoveredTxt = aes.decrypt(cipherTxt);
-//    cout << "decrypted msg " << recoveredTxt << endl;
-
-
     if(isArgClient(argument)){
         std::cout << "HUraa klient" << std::endl;
         Client client;
