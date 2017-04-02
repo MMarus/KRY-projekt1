@@ -12,11 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91a713ce-5e29-4d47-9816-89cda16f8c53" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Makefile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DiffieHellman.h" afterPath="$PROJECT_DIR$/DiffieHellman.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FFS.h" afterPath="$PROJECT_DIR$/FFS.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IO.cpp" afterPath="$PROJECT_DIR$/IO.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -510,7 +507,7 @@
       <workItem from="1490806858258" duration="8234000" />
       <workItem from="1490961458796" duration="65208000" />
       <workItem from="1491127018300" duration="16918000" />
-      <workItem from="1491144501031" duration="4468000" />
+      <workItem from="1491144501031" duration="4816000" />
     </task>
     <task id="LOCAL-00001" summary="AES encrypt, decrypt">
       <created>1490809514256</created>
@@ -561,11 +558,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491144973158</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Makefile a opravy pre merlin">
+      <created>1491159672825</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1491159672825</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154252000" />
+    <option name="totallyTimeSpent" value="154600000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="749" extended-state="0" />
@@ -605,7 +609,8 @@
     <MESSAGE value="diffie hellman kluc generovanie raw bytes" />
     <MESSAGE value="Fugnujeeeeee" />
     <MESSAGE value="Hash opraveny, pouzite normalne inty na hashovanie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hash opraveny, pouzite normalne inty na hashovanie" />
+    <MESSAGE value="Makefile a opravy pre merlin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Makefile a opravy pre merlin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
