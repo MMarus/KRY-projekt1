@@ -8,6 +8,9 @@
 #include <memory>
 #include <limits>
 #include "AES.h"
+#include <iomanip>
+#include <sstream>
+#include <vector>
 
 //From https://wiki.openssl.org/index.php/EVP_Symmetric_Encryption_and_Decryption
 template <typename T>
@@ -81,7 +84,6 @@ string AES::encrypt(string msg) {
     secure_string ptext(msg.c_str());
     secure_string ctext;
 
-    secure_string msgSecureStr(msg.c_str());
     EVP_CIPHER_CTX_free_ptr ctx(EVP_CIPHER_CTX_new(), ::EVP_CIPHER_CTX_free);
     int rc = EVP_EncryptInit_ex(ctx.get(), EVP_aes_256_cbc(), NULL, (const unsigned char *) key.c_str(),
                                 (const unsigned char *) initVector.c_str());
@@ -104,9 +106,21 @@ string AES::encrypt(string msg) {
     // Set cipher text size now that we know it
     ctext.resize(out_len1 + out_len2);
 
-    //TODO: funguje to spravne???
-    string result(ctext.c_str());
+    BIO_dump_fp (stdout, ctext.c_str(), ctext.size());
 
+
+    cout << "ctext = " <<  ctext << endl;
+    stringstream ss;
+    for(int i = 0; i < ctext.size(); i++) {
+        int test = ctext[i];
+        ss << test << " ";
+        cout << test << " ";
+    }
+    cout << endl;
+    cout << ss.str() << endl;
+    string result(ss.str());
+
+    cout << "Result = " << result << endl;
     return result;
 }
 
@@ -114,6 +128,18 @@ string AES::encrypt(string msg) {
 string AES::decrypt(string msg) {
     secure_string ctext(msg.c_str());
     secure_string rtext;
+    stringstream in(msg);
+
+    int countOfChars = 0;
+    int integer = 0;
+    while(in >> integer) {
+        cout << integer << " ";
+        ctext[countOfChars] = integer;
+        countOfChars++;
+    }
+    cout << endl;
+    ctext.resize(countOfChars);
+    cout << "ctext = " << ctext << endl;
 
     EVP_CIPHER_CTX_free_ptr ctx(EVP_CIPHER_CTX_new(), ::EVP_CIPHER_CTX_free);
     int rc = EVP_DecryptInit_ex(ctx.get(), EVP_aes_256_cbc(), NULL, (const unsigned char *) key.c_str(),
@@ -151,12 +177,4 @@ void AES::setKey(const string &key) {
 
 void AES::setInitVector(const string &initVector) {
     AES::initVector = initVector;
-}
-
-string AES::converBytesToStr(unsigned char *bytes, int length) {
-    return std::__cxx11::string();
-}
-
-unsigned char *AES::convertStrToBytes(string str) {
-    return nullptr;
 }

@@ -65,20 +65,22 @@ void DiffieHellman::calculateKey() {
 }
 
 string DiffieHellman::trimKeyTo(int bits) {
-    string resultString(bits/8, 0);
-
+//    string resultString(bits/8, 0);
+//
     string maxNumberStr(bits, '1');
     mpz_class number(maxNumberStr, 2);
     mpz_mod(number.get_mpz_t(), keyRaw.get_mpz_t(), number.get_mpz_t() );
-
-    string tmp(number.get_str(2));
-    cout << "binary length = " << bits - 1 << endl;
-
-    for(int i = bits - 1; i >= 0 ; i--) {
-        resultString[i/8] <<= 1;
-        if(tmp[i] == '1')
-            resultString[i/8] += 1;
-    }
+    string resultString(number.get_str(base));
+//
+//    string tmp(number.get_str(2));
+//    cout << "binary length = " << bits - 1 << endl;
+//
+//    for(int i = bits - 1; i >= 0 ; i--) {
+//        resultString[i/8] <<= 1;
+//        if(tmp[i] == '1')
+//            resultString[i/8] += 1;
+//    }
     cout << "log.debug: " << "DH key: trimed to " << bits << "string size = " << resultString.size() <<" = " << resultString << endl;
+
     return resultString;
 }
