@@ -5,6 +5,7 @@
 #ifndef KRY_PROJEKT1_FFS_H
 #define KRY_PROJEKT1_FFS_H
 
+#include <cstddef>
 #include <gmp.h>
 #include <gmpxx.h>
 #include <iostream>

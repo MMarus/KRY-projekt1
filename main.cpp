@@ -1,7 +1,5 @@
 #include <iostream>
 #include "Communicator.h"
-#include <gmp.h>
-#include <gmpxx.h>
 #include "Hash.h"
 #include "FFS.h"
 #include "Client.h"

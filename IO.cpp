@@ -34,7 +34,9 @@ void IO::openPipes(bool writeFirst){
 
 void IO::openForRead() {
     cerr << "log.debug: " <<"waiting for writers..." << endl;
-    inputStream.open(inFileName, ifstream::in);
+    while(!inputStream.is_open()) {
+        inputStream.open(inFileName, ifstream::in);
+    }
     cerr << "log.debug: " << "got a writer" << endl;
 }
 

@@ -7,6 +7,7 @@
 
 extern const int base;
 
+#include <cstddef>
 #include <gmp.h>
 #include <gmpxx.h>
 #include <iostream>
