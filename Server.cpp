@@ -6,15 +6,15 @@
 #include "Hash.h"
 
 Server::Server() {
-    clientPipeName = "fromClient";
-    serverPipeName = "fromServer";
+    clientPipeName = "fromClient"; //pomenovana rura
+    serverPipeName = "fromServer";  //pomenovana rura2
 }
 
 void Server::run() {
-    communicator.createIO(serverPipeName, clientPipeName, false);
-    communicator.createTunnel();
-    verifyClient();
-    listen();
+    communicator.createIO(serverPipeName, clientPipeName, false); //Nadviazanie spojenia medzi klientom a serverom, treba najskor vytvorit 1 pipe s readerom a writerom a potom druhu, preto klient najskor jej reader a potom citatel
+    communicator.createTunnel();    //Vytvorenie tunelu medzi serverom a klientom
+    verifyClient();         //Overenie klienta
+    listen();   //Cakame na spravy od klienta
 }
 
 void Server::verifyClient() {

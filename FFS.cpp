@@ -16,10 +16,10 @@ void FFS::calculatePublicVector() {
     vector<unsigned long> randomBits = generateRandomBitsVector();
 
     for(int i =0; i < kSecurityParameter; i++) {
-        mpz_pow_ui(result.get_mpz_t(), minus1.get_mpz_t(), randomBits[i]);   //(-1)^bi
+        mpz_pow_ui(result.get_mpz_t(), minus1.get_mpz_t(), randomBits[i]);   //result = (-1)^bi
         mpz_mul(result.get_mpz_t(), result.get_mpz_t(), secretVector[i].get_mpz_t()); // result = (-1)^bi * si
-        mpz_mul(result.get_mpz_t(), result.get_mpz_t(), secretVector[i].get_mpz_t()); // result = (-1)^bi * si * si
-        mpz_powm(result.get_mpz_t(), result.get_mpz_t(), minus1.get_mpz_t(), nCommonModulus.get_mpz_t());
+        mpz_mul(result.get_mpz_t(), result.get_mpz_t(), secretVector[i].get_mpz_t()); // result = (-1)^bi * si^2
+        mpz_powm(result.get_mpz_t(), result.get_mpz_t(), minus1.get_mpz_t(), nCommonModulus.get_mpz_t()); //result^-1 mod n
         cerr << "log.debug: calculatePublicVector i: " << i << " = " << result.get_str(base) << endl;
         publicVector[i] = result;
     }
@@ -61,7 +61,7 @@ mpz_class FFS::calculateXForB() {
     mpz_powm(result.get_mpz_t(), minus1.get_mpz_t(), randB.get_mpz_t(), nCommonModulus.get_mpz_t()); //(-1)^b
     mpz_mul(result.get_mpz_t(), result.get_mpz_t(), randomInt.get_mpz_t()); //result = (-1)^b * r
     mpz_mul(result.get_mpz_t(), result.get_mpz_t(), randomInt.get_mpz_t()); //result = (-1)^b * r * r
-    mpz_mod(result.get_mpz_t(), result.get_mpz_t(), nCommonModulus.get_mpz_t());
+    mpz_mod(result.get_mpz_t(), result.get_mpz_t(), nCommonModulus.get_mpz_t()); //result = (-1)^b * r * r mod n
 
     cerr << "log.debug: calculateX (-1)^b * r * r mod n = " << result.get_str(base) << endl;
     return result;
@@ -69,15 +69,15 @@ mpz_class FFS::calculateXForB() {
 
 mpz_class FFS::calculateResponse() {
     mpz_class response(randomInteger.get_mpz_t()); //copy random integer
-    mpz_class secretExpBit("0", base);
+    mpz_class secretPowerToBit("0", base);
     if(randomBitsVector.size() < kSecurityParameter )
         throw runtime_error("Vector is smaller than security parameter k");
     else {
         for(int i = 0; i < kSecurityParameter; i++) {
-            mpz_pow_ui(secretExpBit.get_mpz_t(), secretVector[i].get_mpz_t(), randomBitsVector[i]); // si^ei
-            mpz_mul(response.get_mpz_t(), response.get_mpz_t(), secretExpBit.get_mpz_t());
+            mpz_pow_ui(secretPowerToBit.get_mpz_t(), secretVector[i].get_mpz_t(), randomBitsVector[i]); // si^ei
+            mpz_mul(response.get_mpz_t(), response.get_mpz_t(), secretPowerToBit.get_mpz_t()); // response= r * si^ei
         }
-        mpz_mod(response.get_mpz_t(), response.get_mpz_t(), nCommonModulus.get_mpz_t());
+        mpz_mod(response.get_mpz_t(), response.get_mpz_t(), nCommonModulus.get_mpz_t()); // response= r * si^ei mod n
     }
 
     cerr << "log.debug: calculated response = " << response.get_str(base) << endl;
@@ -96,13 +96,14 @@ bool FFS::verifyResponse(mpz_class response) {
     else {
         for(int i = 0; i < kSecurityParameter; i++) {
             mpz_pow_ui(publicVectExpBit.get_mpz_t(), publicVector[i].get_mpz_t(), randomBitsVector[i]); // vi^ei
-            mpz_mul(z.get_mpz_t(), z.get_mpz_t(), publicVectExpBit.get_mpz_t());
+            mpz_mul(z.get_mpz_t(), z.get_mpz_t(), publicVectExpBit.get_mpz_t()); //z = z * vi^ei
         }
-        mpz_mod(z.get_mpz_t(), z.get_mpz_t(), nCommonModulus.get_mpz_t());
+        mpz_mod(z.get_mpz_t(), z.get_mpz_t(), nCommonModulus.get_mpz_t()); //z = z * vi^ei mod n
     }
+    //Vypocet minus x
     mpz_class minusX;
-    mpz_neg(minusX.get_mpz_t(), XForB.get_mpz_t());
-    mpz_mod(minusX.get_mpz_t(), minusX.get_mpz_t(), nCommonModulus.get_mpz_t());
+    mpz_neg(minusX.get_mpz_t(), XForB.get_mpz_t()); //minusX = -x
+    mpz_mod(minusX.get_mpz_t(), minusX.get_mpz_t(), nCommonModulus.get_mpz_t()); //minusX = -x mod n
     if ( mpz_cmp_si(z.get_mpz_t(), 0) != 0 &&
             ( mpz_cmp(z.get_mpz_t(), XForB.get_mpz_t()) == 0 || mpz_cmp(z.get_mpz_t(), minusX.get_mpz_t()) == 0) )
         result = true;
@@ -113,7 +114,7 @@ bool FFS::verifyResponse(mpz_class response) {
 }
 
 mpz_class FFS::generateRandomInteger(mpz_class max) {
-    mpz_class randomInt("1279", base);
+    mpz_class randomInt("0", base);
 
     unsigned long randomNumber; //TODO: NOT SURE ABOUT MEMORY LEAKS
     if (!RAND_bytes((unsigned char *)&randomNumber, sizeof randomNumber)) {

@@ -14,6 +14,7 @@ public:
     Client();
     void run();
     void verifyClient();
+    void sendUserInput();
     void setupFFSParameters();
     void sendX();
     void readRandomBitsVector();

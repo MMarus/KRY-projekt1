@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Communicator.h"
-#include "Hash.h"
 #include "FFS.h"
 #include "Client.h"
 #include "Server.h"
@@ -15,9 +14,6 @@ bool isArgClient(string arg){
     return arg == "-c";
 }
 
-//TODO: skusit odoslat a prijat spravu
-/*TODO: typedef std::basic_string <unsigned char> ustring; pouzit mozno*/
-
 int main(int argc, char* argv[])
 {
     if(argc <2 || !isArgumentCorrect(argv[1])){
@@ -28,12 +24,12 @@ int main(int argc, char* argv[])
     std::cout << argument << std::endl;
 
     if(isArgClient(argument)){
-        std::cout << "HUraa klient" << std::endl;
+        std::cout << "Klient" << std::endl;
         Client client;
         client.run();
     }
     else{
-        std::cout << "HUraa server" << std::endl;
+        std::cout << "Server" << std::endl;
         Server server;
         server.run();
     }

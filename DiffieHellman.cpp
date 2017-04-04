@@ -25,7 +25,7 @@ void DiffieHellman::generateMyExponent() {
 
     gmp_randclass  r(gmp_randinit_default);
     r.seed(randomNumber);
-    myExponent = r.get_z_bits(256);
+    myExponent = r.get_z_bits(256); //vygeneruj 256bitov pomocou randomNumber ako seed
     cerr << "log.debug: " << "Generated exponent: " << myExponent.get_str(base) << endl;
 }
 
@@ -50,7 +50,7 @@ void DiffieHellman::setRecievedExponent(mpz_class exp) {
 }
 
 void DiffieHellman::calculateKey() {
-    //expToSend = g^myExp mod n
+    //expToSend = g^recievedExponent mod n
     cerr << recievedExponent.get_str(base);
     cerr << "^ " << myExponent.get_str(base);
     cerr << " mod " << nPublicPrimeModulus.get_str(base);
@@ -62,8 +62,10 @@ void DiffieHellman::calculateKey() {
 }
 
 string DiffieHellman::trimKeyTo(int bits) {
+    //Vytvorenie maximalneho cisla na bits bitoch
     string maxNumberStr(bits, '1');
     mpz_class number(maxNumberStr, 2);
+    //modulo kluca s maximalnym cislom
     mpz_mod(number.get_mpz_t(), keyRaw.get_mpz_t(), number.get_mpz_t() );
     string resultString(number.get_str(base));
 

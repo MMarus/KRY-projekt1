@@ -6,14 +6,15 @@
 #include "Hash.h"
 
 Client::Client() {
-    clientPipeName = "fromClient";
-    serverPipeName = "fromServer";
+    clientPipeName = "fromClient"; //meno pomenovanej rury 1
+    serverPipeName = "fromServer"; //meno pomenovanej rury 2
 }
 
 void Client::run() {
-    communicator.createIO(clientPipeName, serverPipeName, true);
-    communicator.createTunnel();
-    verifyClient();
+    communicator.createIO(clientPipeName, serverPipeName, true); //Vytvorenie komunikacnej triedy
+    communicator.createTunnel();    //Vytvorenie tunelu medzi klientom a serverom
+    verifyClient();     //Overenie klienta
+    sendUserInput();
 }
 
 void Client::verifyClient() {
@@ -24,29 +25,6 @@ void Client::verifyClient() {
         readRandomBitsVector();
         sendFFSResponse();
     }
-
-    string userInput("");
-    string messageHash;
-
-    cout << "You can send messages to server now!" << endl;
-    cout << "Type 'exit' to exit" << endl;
-
-    while(getline(cin, userInput)) {
-        if(userInput.empty()) {
-            cout << "Error message is empty!" << endl;
-            continue;
-        }
-        communicator.sendEncryptedMsg(userInput);
-        messageHash = communicator.readEncryptedMsg();
-        if(Hash::isHashCorrect(messageHash, userInput))
-            cout << "Hash of msg = " << userInput << " is CORRECT, server recieved it correctly" << endl;
-        else
-            cout << "Error: hash of msg = " << userInput << " is NOT CORRECT, server recieved it incorrectly" << endl;
-
-        if ( userInput == "exit" )
-            break;
-    }
-
 }
 
 void Client::setupFFSParameters() {
@@ -73,4 +51,28 @@ void Client::readRandomBitsVector() {
 void Client::sendFFSResponse() {
 
     communicator.sendEncryptedMsg(ffs.calculateResponse().get_str(base));
+}
+
+void Client::sendUserInput() {
+    string userInput("");
+    string messageHash;
+
+    cout << "You can send messages to server now!" << endl;
+    cout << "Type 'exit' to exit" << endl;
+
+    while(getline(cin, userInput)) {
+        if(userInput.empty()) {
+            cout << "Error message is empty!" << endl;
+            continue;
+        }
+        communicator.sendEncryptedMsg(userInput);
+        messageHash = communicator.readEncryptedMsg();
+        if(Hash::isHashCorrect(messageHash, userInput))
+            cout << "Hash of msg = " << userInput << " is CORRECT, server recieved it correctly" << endl;
+        else
+            cout << "Error: hash of msg = " << userInput << " is NOT CORRECT, server recieved it incorrectly" << endl;
+
+        if ( userInput == "exit" )
+            break;
+    }
 }

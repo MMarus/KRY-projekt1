@@ -16,32 +16,23 @@ string Hash::createSHA256(string msg) {
     //Kod z https://wiki.openssl.org/index.php/EVP_Message_Digests
     EVP_MD_CTX *mdctx;
 
-    if((mdctx = EVP_MD_CTX_create()) == NULL)
+    if((mdctx = EVP_MD_CTX_create()) == NULL)  //Vytvorenie kontextu
         handleErrors();
 
-    if(1 != EVP_DigestInit_ex(mdctx, EVP_sha256(), NULL))
+    if(1 != EVP_DigestInit_ex(mdctx, EVP_sha256(), NULL)) //inicializacia
         handleErrors();
 
-    if(1 != EVP_DigestUpdate(mdctx, msg.c_str(), msg.length()))
+    if(1 != EVP_DigestUpdate(mdctx, msg.c_str(), msg.length())) //Vytvorenie hashu
         handleErrors();
 
     if((digest = (unsigned char *)OPENSSL_malloc(EVP_MD_size(EVP_sha256()))) == NULL)
         handleErrors();
 
-    if(1 != EVP_DigestFinal_ex(mdctx, digest, &digest_length))
+    if(1 != EVP_DigestFinal_ex(mdctx, digest, &digest_length)) //Zarovnanie hashu
         handleErrors();
 
     EVP_MD_CTX_destroy(mdctx);
 
-    //Konverzia na hex
-//    stringstream ss;
-//    ss << std::hex << setfill('0');
-//    for (int i = 0; i < SHA256_DIGEST_LENGTH; ++i)
-//    {
-//        cout << std::setw(2) << static_cast<unsigned>(hash[i]);
-//        ss << std::setw(2) << static_cast<unsigned>(hash[i]);
-//    }
-//    cout << endl;
     stringstream ss;
     for(int i = 0; i < digest_length; i++) {
         int test = digest[i];
