@@ -7,6 +7,8 @@
 IO::IO() {
     inFileName = "";
     outFilename = "";
+    msgHeader = "$XMARUS05MSGSTARTSIZE:";
+    msgFooter = "XMARUS05MSGEND$";
 }
 
 void IO::createPipes(string write, string read, bool writeFirst) {
@@ -47,19 +49,17 @@ void IO::openForWrite() {
 }
 
 void IO::sendMessage(string msg) {
-    outputStream << "$XMARUS05MSGSTARTSIZE: ";
+    outputStream << msgHeader << " ";
     outputStream << msg.size();
     outputStream << " ";
     outputStream << msg;
-    outputStream << "XMARUS05MSGEND$";
+    outputStream << msgFooter;
     outputStream << endl;
 
     cerr << "log.debug: " << "Sent message size:'" << msg.size() <<"' content: " << msg << endl;
 }
 
 string IO::readMessage() {
-    string head("$XMARUS05MSGSTARTSIZE:");
-    string footer("XMARUS05MSGEND$");
     string msg("");
 
     cerr << "log.debug: " << "Waiting for message" << endl;
@@ -70,11 +70,11 @@ string IO::readMessage() {
     {
         string msgStart("");
         inputStream >> msgStart;
-        if(msgStart == head){
+        if(msgStart == msgHeader){
             inputStream >> msgSize;
             cerr << "log.debug: message size = " << msgSize << endl;
             inputStream.get(c); //odstran medzeru zo zaciatku
-            for(int i = 0; i <= (msgSize + footer.length()); i++) {
+            for(int i = 0; i <= (msgSize + msgFooter.length()); i++) {
                 inputStream.get(c);
                 msg += c;
             }

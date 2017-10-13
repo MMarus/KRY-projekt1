@@ -34,6 +34,6 @@ int main(int argc, char* argv[])
         server.run();
     }
 
-    printf("KONIEC PROGRAMU");
+    std::cout << "KONIEC PROGRAMU" << std::endl;
     return 0;
 }

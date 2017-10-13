@@ -31,6 +31,9 @@ private:
     ifstream inputStream;
     ofstream outputStream;
 
+    string msgHeader;
+    string msgFooterT;
+
     void createOutput(string out);
     void openPipes(bool);
     void openForRead();
